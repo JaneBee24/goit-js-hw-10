@@ -1,14 +1,9 @@
 import { defineConfig } from 'vite';
-import { glob } from 'glob';
 
 export default defineConfig({
-  root: 'src',
+  base: '/goit-js-hw-10/', 
   build: {
-    outDir: '../dist',
+    outDir: 'dist',
     emptyOutDir: true,
-    sourcemap: true,
-    rollupOptions: {
-      input: glob.sync('./src/*.html'),
-    },
   },
 });
