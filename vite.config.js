@@ -4,7 +4,7 @@ import { glob } from 'glob';
 export default defineConfig({
   root: 'src',
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
     emptyOutDir: true,
     sourcemap: true,
     rollupOptions: {
