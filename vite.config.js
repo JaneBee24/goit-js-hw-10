@@ -1,29 +1,14 @@
 import { defineConfig } from 'vite';
 import { glob } from 'glob';
 
-export default defineConfig(({ command }) => {
-  return {
-    define: {
-      [command === 'serve' ? 'global' : '_global']: {},
+export default defineConfig({
+  root: 'src',
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    sourcemap: true,
+    rollupOptions: {
+      input: glob.sync('./src/*.html'),
     },
-    root: 'src',
-    base: '/goit-js-hw-10/', 
-    build: {
-      sourcemap: true,
-      rollupOptions: {
-        input: glob.sync('./src/*.html'),
-        output: {
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              return 'vendor';
-            }
-          },
-          entryFileNames: '[name].js',
-          assetFileNames: 'assets/[name]-[hash][extname]',
-        },
-      },
-      outDir: 'dist', 
-      emptyOutDir: true,
-    },
-  };
+  },
 });
