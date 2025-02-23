@@ -7,6 +7,7 @@ export default defineConfig(({ command }) => {
       [command === 'serve' ? 'global' : '_global']: {},
     },
     root: 'src',
+    base: '/goit-js-hw-10/', 
     build: {
       sourcemap: true,
       rollupOptions: {
@@ -21,7 +22,7 @@ export default defineConfig(({ command }) => {
           assetFileNames: 'assets/[name]-[hash][extname]',
         },
       },
-      outDir: '../dist',
+      outDir: 'dist', 
       emptyOutDir: true,
     },
   };
