@@ -6,52 +6,14 @@
     <title>GoIT JS Homework 10</title>
   <script type="module" crossorigin src="/goit-js-hw-10/index.js"></script>
   <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-BbSUbo7J.js">
-  <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/1-timer-C9mxgqZa.js">
+  <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/1-timer-CkJYmkoR.js">
   <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/vendor-C1gPI-5C.css">
   <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/styles-B_SVLmJ5.css">
 </head>
 <body>
-    <h1>Таймер зворотного відліку</h1>
-    <input type="text" id="datetime-picker">
-    <button type="button" data-start>Start</button>
-    <div class="timer">
-        <div class="field">
-            <span class="value" data-days>00</span>
-            <span class="label">Days</span>
-        </div>
-        <div class="field">
-            <span class="value" data-hours>00</span>
-            <span class="label">Hours</span>
-        </div>
-        <div class="field">
-            <span class="value" data-minutes>00</span>
-            <span class="label">Minutes</span>
-        </div>
-        <div class="field">
-            <span class="value" data-seconds>00</span>
-            <span class="label">Seconds</span>
-        </div>
-    </div>
-    
-    <h1>Генератор промісів</h1>
-    <form class="form">
-        <label>
-            Delay (ms)
-            <input type="number" name="delay" required>
-        </label>
-        <fieldset>
-            <legend>State</legend>
-            <label>
-                <input type="radio" name="state" value="fulfilled" required>
-                Fulfilled
-            </label>
-            <label>
-                <input type="radio" name="state" value="rejected" required>
-                Rejected
-            </label>
-        </fieldset>
-        <button type="submit">Create notification</button>
-    </form>
+    <include src="./1-timer.html"></include>
+
+    <include src="./2-snackbar.html"></include>
 
 </body>
 </html>
