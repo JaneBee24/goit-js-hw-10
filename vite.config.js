@@ -9,7 +9,6 @@ export default defineConfig(({ command }) => {
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
-    root: 'src',
     base: '/goit-js-hw-10/',
     build: {
       sourcemap: true,
@@ -35,7 +34,7 @@ export default defineConfig(({ command }) => {
           },
         },
       },
-      outDir: '../dist',
+      outDir: 'dist',
       emptyOutDir: true,
     },
     plugins: [
