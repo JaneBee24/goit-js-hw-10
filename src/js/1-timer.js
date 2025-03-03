@@ -19,9 +19,10 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
+    console.log("Выбрана дата:", selectedDates[0]); 
     userSelectedDate = selectedDates[0];
     if (userSelectedDate <= new Date()) {
-      iziToast.error({ title: "Помилка", message: "Please choose a date in the future" });
+      iziToast.error({ title: "Ошибка", message: "Please choose a date in the future" });
       startButton.disabled = true;
     } else {
       startButton.disabled = false;
@@ -33,8 +34,11 @@ flatpickr(dateTimePicker, options);
 startButton.disabled = true;
 
 startButton.addEventListener("click", () => {
-  if (!userSelectedDate) return;
-  
+  if (!userSelectedDate) {
+    iziToast.error({ title: "Ошибка", message: "Выберите дату перед запуском!" });
+    return;
+  }
+
   startButton.disabled = true;
   dateTimePicker.disabled = true;
 
@@ -45,6 +49,7 @@ startButton.addEventListener("click", () => {
       dateTimePicker.disabled = false;
       startButton.disabled = false;
       updateTimerDisplay(0, 0, 0, 0);
+      iziToast.success({ title: "Готово", message: "Таймер завершился!" });
       return;
     }
     const { days, hours, minutes, seconds } = convertMs(timeRemaining);
