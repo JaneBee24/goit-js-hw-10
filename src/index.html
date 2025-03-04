@@ -7,9 +7,22 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <include src="./partials/1-timer.html"></include>
-
-    <include src="./partials/2-snackbar.html"></include>
+    <div id="timer-container"></div>
+    <div id="snackbar-container"></div>
+    
+    <script>
+      async function loadHTML(url, containerId) {
+        const response = await fetch(url);
+        if (response.ok) {
+          document.getElementById(containerId).innerHTML = await response.text();
+        } else {
+          console.error(`Ошибка загрузки ${url}`);
+        }
+      }
+    
+      loadHTML("/src/1-timer.html", "timer-container");
+      loadHTML("/src/2-snackbar.html", "snackbar-container");
+    </script>    
 
     <script type="module" src="./js/1-timer.js"></script>
     <script type="module" src="./js/2-snackbar.js"></script>
