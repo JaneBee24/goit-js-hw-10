@@ -9,21 +9,26 @@ form.addEventListener("submit", (event) => {
   const delay = Number(form.elements.delay.value);
   const state = form.elements.state.value;
 
-  console.log("Создаем промис:", { delay, state }); 
-
   if (!delay) {
-    iziToast.error({ title: "Ошибка", message: "Введите корректную задержку!" });
+    iziToast.error({
+      title: "⛔",
+      message: "Please enter a valid delay!",
+    });
     return;
   }
 
   createPromise(delay, state)
-    .then((message) => {
-      console.log("✅", message);
-      iziToast.success({ title: "✅ Успех", message });
+    .then((value) => {
+      iziToast.success({
+        title: "✅",
+        message: `Fulfilled promise in ${value}ms`,
+      });
     })
-    .catch((message) => {
-      console.log("❌", message);
-      iziToast.error({ title: "❌ Ошибка", message });
+    .catch((value) => {
+      iziToast.error({
+        title: "❌",
+        message: `Rejected promise in ${value}ms`,
+      });
     });
 });
 
